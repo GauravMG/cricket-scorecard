@@ -172,7 +172,7 @@ function renderInnings(scoreCards = []) {
         </div>
 
         <div class="innings-summary">
-          <div class="summary-pill"><strong>Run Rate:</strong> ${safe(score.runRate, 0)}</div>
+          <div class="summary-pill"><strong>RR:</strong> ${safe(score.runRate, 0)}</div>
           <div class="summary-pill"><strong>Extras:</strong> ${formatExtras(extras)}</div>
           <div class="summary-pill"><strong>Powerplay:</strong> ${safe(innings?.ppData?.pp_1?.runsScored, 0)} in ${safe(innings?.ppData?.pp_1?.ppOversTo, 0)} overs</div>
           <div class="summary-pill"><strong>Bowling Team:</strong> ${safe(bowlTeam.bowlTeamName)}</div>

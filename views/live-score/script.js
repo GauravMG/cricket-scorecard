@@ -16,6 +16,7 @@ const map = {
   lastWicket: true,
   nextBatsman: true,
   reqRate: true,
+  currentRunRate: true,
   venue: true,
   bat1Name: true,
   bat1Stat: true,
@@ -206,6 +207,10 @@ function renderScore(api) {
     mini?.partnerShip
       ? `Partnership ${partnershipRuns} (${partnershipBalls})`
       : "-";
+  const partnershipWithoutPrefix =
+    mini?.partnerShip
+      ? `${partnershipRuns} (${partnershipBalls})`
+      : "-";
 
   const reqRate = matchDetails.state === "Complete"
     ? "-"
@@ -223,7 +228,7 @@ function renderScore(api) {
   const matchCommentaryKeys = Object.keys(matchCommentary)
   const momentText = matchCommentaryKeys?.length ? matchCommentary[matchCommentaryKeys[matchCommentaryKeys.length - 1]].commText : ""
 
-  if (!scorecard?.isMatchComplete) {
+  if (scorecard?.isMatchComplete || ["Complete", "Delayed", "Preview"].includes(header.state)) {
     document.getElementById("liveRibbon").style.display = "none"
   }
 
@@ -251,12 +256,13 @@ function renderScore(api) {
     lastWicket,
     nextBatsman: "-",
     reqRate,
+    currentRunRate: crr,
     bat1Name: striker.name || "-",
     bat1Stat: `${striker.runs || 0} (${striker.balls || 0}) • SR ${striker.strikeRate || 0}`,
     bat2Name: nonStriker.name || "-",
     bat2Stat: `${nonStriker.runs || 0} (${nonStriker.balls || 0}) • SR ${nonStriker.strikeRate || 0}`,
     batNote: partnership,
-    batNote2: partnership,
+    batNote2: partnershipWithoutPrefix,
     bowl1Name: bowler1.name || "-",
     bowl1Stat: `${bowler1.wickets || 0}-${bowler1.runs || 0} (${bowler1.overs || 0}) • ECO ${bowler1.economy || 0}`,
     bowl2Name: bowler2.name || "-",
