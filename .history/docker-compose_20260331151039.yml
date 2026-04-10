@@ -1,0 +1,21 @@
+# Use Node 22
+FROM node:22-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy rest of the code
+COPY . .
+
+# Generate Prisma client
+RUN npx prisma generate
+
+# Expose port
+EXPOSE 7001
+
+# Run app
+CMD ["npm", "run", "dev"]

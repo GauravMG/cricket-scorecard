@@ -1,0 +1,314 @@
+:root {
+    --bg: #08111f;
+    --panel: #101c33cc;
+    --panel2: #18284acc;
+    --accent: #ffd400;
+    --accent2: #00e5ff;
+    --green: #18c964;
+    --red: #ff4d4d;
+    --text: #ffffff;
+    --muted: #b7c3d9;
+    --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    --radius: 18px;
+    --line: rgba(255, 255, 255, .10);
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top, #17305d 0%, #08111f 45%, #04070d 100%);
+    color: var(--text);
+}
+
+.wrap {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    /* align-items: flex-end; */
+    justify-content: center;
+    padding: 18px;
+}
+
+.board {
+    width: min(1800px, 100%);
+    background: linear-gradient(180deg, rgba(10, 18, 33, .92), rgba(6, 10, 19, .96));
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.topbar {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr 1.1fr;
+    gap: 12px;
+    padding: 14px;
+    background: linear-gradient(90deg, #15305c, #0d1831);
+    border-bottom: 1px solid var(--line);
+}
+
+.team,
+.centerbox {
+    border-radius: 18px;
+    min-height: 110px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06);
+}
+
+.team.home {
+    background: linear-gradient(135deg, #7d0017, #b00020);
+}
+
+.team.away {
+    background: linear-gradient(135deg, #146c2f, #1d9343);
+}
+
+.badge {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .12);
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    font-size: 18px;
+    border: 2px solid rgba(255, 255, 255, .18);
+    flex: 0 0 auto;
+}
+
+.teaminfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.teamname {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: .4px;
+    opacity: .95;
+    text-transform: uppercase;
+}
+
+.scoreline {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+}
+
+.score {
+    font-size: 64px;
+    line-height: 1;
+    font-weight: 900;
+    color: var(--accent);
+    text-shadow: 0 2px 0 rgba(0, 0, 0, .2);
+}
+
+.overs {
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+    opacity: .95;
+}
+
+.subtitle {
+    margin-top: 5px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, .82);
+}
+
+.centerbox {
+    background: linear-gradient(135deg, #0b0b10, #17171f);
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.centerbox::before {
+    content: "";
+    position: absolute;
+    inset: -40% -20%;
+    background: radial-gradient(circle, rgba(0, 229, 255, .18), transparent 60%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1)
+    }
+
+    50% {
+        transform: translateY(8px) scale(1.08)
+    }
+}
+
+.matchtitle {
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent2);
+}
+
+.matchstate {
+    position: relative;
+    z-index: 1;
+    font-size: 58px;
+    font-weight: 900;
+    line-height: 1;
+    margin-top: 4px;
+}
+
+.matchsub {
+    position: relative;
+    z-index: 1;
+    font-size: 15px;
+    color: var(--muted);
+    margin-top: 6px;
+    text-align: center;
+}
+
+.infobar {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, .03);
+    border-bottom: 1px solid var(--line);
+}
+
+.chip {
+    background: linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .04));
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 14px;
+    padding: 12px 14px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    font-size: 15px;
+}
+
+.chip b {
+    font-size: 16px;
+    color: var(--accent);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1.15fr .9fr;
+    gap: 12px;
+    padding: 14px;
+}
+
+.card {
+    background: linear-gradient(180deg, rgba(22, 33, 58, .96), rgba(12, 18, 31, .96));
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.cardhead {
+    padding: 12px 14px;
+    background: linear-gradient(90deg, rgba(255, 212, 0, .16), rgba(0, 229, 255, .08));
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    font-weight: 900;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.cardbody {
+    padding: 14px;
+}
+
+.playerrow {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, .08);
+    font-size: 16px;
+}
+
+.playerrow:last-child {
+    border-bottom: none
+}
+
+.name {
+    font-weight: 800;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.stats {
+    color: var(--accent);
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.bowler {
+    color: #7de0ff;
+}
+
+.lower {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 12px;
+    padding: 0 14px 14px 14px;
+}
+
+.ticker {
+    padding: 12px 14px;
+    background: linear-gradient(90deg, #25120a, #4b1c11);
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    font-weight: 800;
+    color: #ffd3c6;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mini {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 8px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #dbe7ff;
+}
+
+.pill {
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .07);
+    border: 1px solid rgba(255, 255, 255, .08);
+}

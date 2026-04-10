@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: cricket_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: cricket_scorecard
+    ports:
+      - "54321:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: cricket_app
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "7001:7001"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: sh -c "sleep 5 && npx prisma migrate deploy && npm run dev"
+
+volumes:
+  postgres_data:
