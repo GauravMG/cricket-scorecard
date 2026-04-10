@@ -24,6 +24,7 @@ app.use('/api', matchRoutes);
 
 // Views
 app.use("/live-score", express.static(path.join(process.cwd(), "views/live-score")));
+app.use("/full-scorecard", express.static(path.join(process.cwd(), "views/full-scorecard")));
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
