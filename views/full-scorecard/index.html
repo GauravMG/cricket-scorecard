@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cricket Full Scorecard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Rajdhani:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="page-bg"></div>
+
+  <div class="app">
+    <header class="hero">
+      <div class="hero-main">
+        <div class="series" id="seriesName">Series</div>
+        <h1 class="match-title" id="matchTitle"></h1>
+        <div class="status" id="matchStatus">Status</div>
+      </div>
+
+      <div class="hero-scoreline">
+        <div class="team-summary">
+          <div class="team-badge" id="team1Short">T1</div>
+          <div class="team-summary-info">
+            <div class="team-name" id="team1Name">Team 1</div>
+            <div class="team-total" id="team1Score">-</div>
+          </div>
+        </div>
+
+        <div class="result-chip" id="resultText">Result</div>
+
+        <div class="team-summary">
+          <div class="team-badge alt" id="team2Short">T2</div>
+          <div class="team-summary-info">
+            <div class="team-name" id="team2Name">Team 2</div>
+            <div class="team-total" id="team2Score">-</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="meta-grid">
+        <div class="meta-card">
+          <span>Toss</span>
+          <b id="tossText">-</b>
+        </div>
+        <div class="meta-card">
+          <span>Format</span>
+          <b id="formatText">-</b>
+        </div>
+        <div class="meta-card">
+          <span>Match</span>
+          <b id="descText">-</b>
+        </div>
+        <div class="meta-card">
+          <span>Player of Match</span>
+          <b id="pomText">-</b>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- <section class="overview-panel">
+        <div class="panel-head">
+          <span>Match Overview</span>
+          <span class="head-tag">SUMMARY</span>
+        </div>
+        <div class="overview-grid" id="overviewGrid"></div>
+      </section> -->
+
+      <section id="inningsContainer" class="innings-stack"></section>
+    </main>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
